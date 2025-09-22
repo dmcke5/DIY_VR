@@ -10,7 +10,7 @@ A fully 3D printed headset design for VR!
 - 2880x1440p Resolution
 - Inidividually adjustable IPD
 - Easily replaceable lenses
-- Compatible with HTC Vive Head Pads
+- Compatible with HTC Vive Pro Head Pads
 - Adjustable brightness
 - Duplicate or extend display modes for VR or regular viewing
 - SteamVR compatible 3 DOF head tracking
@@ -28,3 +28,23 @@ A fully 3D printed headset design for VR!
 1x Arduino Pro Micro USB-C Version - https://www.aliexpress.com/item/32846843498.html
 
 1x Pair 34mm Diameter 45mm Focal Length Lenses - https://www.aliexpress.com/item/1005004324103470.html
+
+1x 1M 25mm Nylon Strapping - https://www.aliexpress.com/item/1005008515249414.html
+
+1x HTC Vive Pro Face Pad - https://www.aliexpress.com/item/1005001324834346.html
+
+#### Hardware
+
+16x M3x5x5 Threaded Inserts
+4x M3x12 SHCS
+10x M3x8 SHCS
+
+### Instructions
+
+You'll need one of every part printed, except for these items that require multiples:
+
+3x DIY VR Buckle 
+
+2x DIY VR Lens Retainer
+
+2x DIY VR Thumbscrew Head
