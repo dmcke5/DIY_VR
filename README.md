@@ -57,10 +57,21 @@ There are print recomendations for most of the important parts in the video, exc
 
 Only four connections are needed between the Arduino and the IMU, VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
 ```
-Arduino  |  IMU
----------------
-VCC      |  VCC
-GND      |  GND
-D2       |  SDA
-D3       |  SCL
+ Arduino |  IMU
+----------------
+  VCC    |  VCC
+  GND    |  GND
+  D2     |  SDA
+  D3     |  SCL
 ```
+
+#### Head Tracking Software/Firmware
+
+The head tracking relies on the [Relativity VR](https://www.relativty.com/) driver and the FastIMU Arduino library.
+
+To install/flash the FastIMU firmware onto your head tracker, follow this guide: https://github.com/relativty/Relativty?tab=readme-ov-file#142-programming-your-mcu
+
+The one thing they don't mention in the guide is that you may need to change the IMU address and name on lines 13 and 14 to match your module. You can flash and run the Example "IMUIdentifier" to find out what values to include.
+
+When you complete the head tracker calibration both in Arduino Studio and later in SteamVR, ensure your headset is sitting flat on the table. You will need to prop it up with something so that the face plate isn't making the unit sit at an angle otherwise your home position will be off.
+
