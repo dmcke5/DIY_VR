@@ -58,7 +58,11 @@ There are print recomendations for most of the important parts in the video, exc
 Only four connections are needed between the Arduino and the IMU, VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
 
 Arduino  |  IMU
+
 VCC      |  VCC
+
 GND      |  GND
+
 D2       |  SDA
+
 D3       |  SCL
