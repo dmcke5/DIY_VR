@@ -75,3 +75,6 @@ The one thing they don't mention in the guide is that you may need to change the
 
 When you complete the head tracker calibration both in Arduino Studio and later in SteamVR, ensure your headset is sitting flat on the table. You will need to prop it up with something so that the face plate isn't making the unit sit at an angle otherwise your home position will be off.
 
+Next you will need to install and configure the Steam VR driver. Here is a link to the guide!
+https://github.com/relativty/Relativty?tab=readme-ov-file#143-installing-the-steamvr-driver
+
