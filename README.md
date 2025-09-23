@@ -65,6 +65,9 @@ Only four connections are needed between the Arduino and the IMU, VCC, GND, SCL 
   D3     |  SCL
 ```
 
+Use the +5v and GND pins on the PCB (or equivalent if you're going without the PCB) to power the HDMI driver board from the head tracker module. Use a multimeter to confirm which of the two pads is the ground before you connect anything! On my unit, the circular pad was ground and the square pad was +5v!
+
+
 #### Head Tracking Software/Firmware
 
 The head tracking relies on the [Relativity VR](https://www.relativty.com/) driver and the FastIMU Arduino library.
@@ -78,7 +81,7 @@ When you complete the head tracker calibration both in Arduino Studio and later 
 Next you will need to install and configure the Steam VR driver. Here is a link to the guide!
 https://github.com/relativty/Relativty?tab=readme-ov-file#143-installing-the-steamvr-driver
 
-Ensure you follow the guide closely. During the configuration, you will need to set the VID and PID of your board as it will be different to the one used in their drivers.
+Ensure you follow the guide closely. During the configuration, you will need to set the VID and PID of your board as it will be different to the one used in their drivers. Use the identify board info option in Arduino Studio to display the VID and PID values. They will be in HEX format and need to be converted to Decimal before you can enter them into the configuration!
 
 The window X and Y setting will depend on your PC setup so read the guide for how to set that up, but the correct settings for everything else are as follows:
 
@@ -88,3 +91,7 @@ The window X and Y setting will depend on your PC setup so read the guide for ho
 "renderWidth" : 2880,
 "renderHeight" : 1440,
 ```
+
+#### Physical Build
+
+Refer to the project video for build steps and I will add anything here in future if anyone requests extra information!
