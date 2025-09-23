@@ -78,3 +78,13 @@ When you complete the head tracker calibration both in Arduino Studio and later 
 Next you will need to install and configure the Steam VR driver. Here is a link to the guide!
 https://github.com/relativty/Relativty?tab=readme-ov-file#143-installing-the-steamvr-driver
 
+Ensure you follow the guide closely. During the configuration, you will need to set the VID and PID of your board as it will be different to the one used in their drivers.
+
+The window X and Y setting will depend on your PC setup so read the guide for how to set that up, but the correct settings for everything else are as follows:
+
+```
+"windowWidth" : 2880,
+"windowHeight" : 1440,
+"renderWidth" : 2880,
+"renderHeight" : 1440,
+```
