@@ -36,7 +36,9 @@ A fully 3D printed headset design for VR!
 #### Hardware
 
 16x M3x5x5 Threaded Inserts
+
 4x M3x12 SHCS
+
 10x M3x8 SHCS
 
 ### Instructions
@@ -72,13 +74,16 @@ Use the +5v and GND pins on the PCB (or equivalent if you're going without the P
 
 The head tracking relies on the [Relativity VR](https://www.relativty.com/) driver and the FastIMU Arduino library.
 
-To install/flash the FastIMU firmware onto your head tracker, follow this guide: https://github.com/relativty/Relativty?tab=readme-ov-file#142-programming-your-mcu
+To install/flash the FastIMU firmware onto your head tracker, follow this guide: 
+
+https://github.com/relativty/Relativty?tab=readme-ov-file#142-programming-your-mcu
 
 The one thing they don't mention in the guide is that you may need to change the IMU address and name on lines 13 and 14 to match your module. You can flash and run the Example "IMUIdentifier" to find out what values to include.
 
 When you complete the head tracker calibration both in Arduino Studio and later in SteamVR, ensure your headset is sitting flat on the table. You will need to prop it up with something so that the face plate isn't making the unit sit at an angle otherwise your home position will be off.
 
 Next you will need to install and configure the Steam VR driver. Here is a link to the guide!
+
 https://github.com/relativty/Relativty?tab=readme-ov-file#143-installing-the-steamvr-driver
 
 Ensure you follow the guide closely. During the configuration, you will need to set the VID and PID of your board as it will be different to the one used in their drivers. Use the identify board info option in Arduino Studio to display the VID and PID values. They will be in HEX format and need to be converted to Decimal before you can enter them into the configuration!
