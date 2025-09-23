@@ -57,7 +57,7 @@ There are print recomendations for most of the important parts in the video, exc
 
 #### Electronics
 
-Only four connections are needed between the Arduino and the IMU, VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
+Only four connections are needed between the Arduino and the IMU; VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
 ```
  Arduino |  IMU
 ----------------
@@ -96,6 +96,8 @@ The window X and Y setting will depend on your PC setup so read the guide for ho
 "renderWidth" : 2880,
 "renderHeight" : 1440,
 ```
+
+If you can't get through the room setup in SteamVR, chances are you've got something wrong in either the driver configuration or you haven't got the correct IMU selected in the Arduino sketch.
 
 #### Physical Build
 
