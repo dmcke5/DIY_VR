@@ -19,7 +19,7 @@ A fully 3D printed headset design for VR!
 
 1x Display Set (this is the one I used in the video with the issue of not reaching 90hz when in full resolution mode) - https://www.aliexpress.com/item/1005008906958871.html
 
-1x IMU board (any variety that FastIMU supports is fine) - https://www.aliexpress.com/item/1005008906958871.html
+1x IMU board (any variety that FastIMU supports is fine) - https://www.aliexpress.com/item/1005007284708262.html
 
 2x 3mm x 145mm Stainless Rod - https://www.aliexpress.com/item/1005009347568195.html
 
@@ -41,10 +41,24 @@ A fully 3D printed headset design for VR!
 
 ### Instructions
 
-You'll need one of every part printed, except for these items that require multiples:
+#### Printing
+
+First, you'll need one of every part printed, except for these items that require multiples:
 
 3x DIY VR Buckle 
 
 2x DIY VR Lens Retainer
 
 2x DIY VR Thumbscrew Head
+
+There are print recomendations for most of the important parts in the video, except for the front cover. It's a difficult print to do well, and would ideally be printed back-side down with support interface material enabled. If you can't do multi-material prints, your next best bet would be to print it front-side down and just expect to do some cleanup on the front beveled edges.
+
+#### Electronics
+
+Only four connections are needed between the Arduino and the IMU, VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
+
+Arduino  |  IMU
+VCC      |  VCC
+GND      |  GND
+D2       |  SDA
+D3       |  SCL
