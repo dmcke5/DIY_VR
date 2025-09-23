@@ -15,6 +15,8 @@ A fully 3D printed headset design for VR!
 - Duplicate or extend display modes for VR or regular viewing
 - SteamVR compatible 3 DOF head tracking
 
+Please note! As I mentioned in the video, the displays I purchased can't actually do the 90hz they claim in the full 2880x1440 display mode which is needed for SteamVR. I'm going to reach out to the company and see if this is just an issue with my unit or if the other 120hz version they sell can actually provide the refresh rate that they claim. I will write back here if/when I get a response!
+
 #### Bill of Materials
 
 1x Display Set (this is the one I used in the video with the issue of not reaching 90hz when in full resolution mode) - https://www.aliexpress.com/item/1005008906958871.html
