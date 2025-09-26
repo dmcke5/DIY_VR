@@ -3,7 +3,7 @@
 
 A fully 3D printed headset design for VR!
 
-[Project Video Link](https://youtu.be/DYXRUFX2avY)
+[Project Video Link](https://youtu.be/pbNyW5GsUQc)
 
 #### Features
 
