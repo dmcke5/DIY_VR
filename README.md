@@ -4,6 +4,7 @@
 A fully 3D printed headset design for VR!
 
 [Project Video Link V1.0](https://youtu.be/pbNyW5GsUQc)
+
 [Project Video Link V2.0](https://youtu.be/7cRuXjuuTN8)
 
 #### Features
