@@ -3,25 +3,36 @@
 
 A fully 3D printed headset design for VR!
 
-[Project Video Link](https://youtu.be/pbNyW5GsUQc)
+[Project Video Link V1.0](https://youtu.be/pbNyW5GsUQc)
+[Project Video Link V2.0](https://youtu.be/7cRuXjuuTN8)
 
 #### Features
 
 - 2880x1440p Resolution
+- 120hz Refresh Rate
 - Inidividually adjustable IPD
 - Easily replaceable lenses
 - Compatible with HTC Vive Pro Head Pads
 - Adjustable brightness
-- Duplicate or extend display modes for VR or regular viewing
-- SteamVR compatible 3 DOF head tracking
+- SteamVR compatible 3 DOF head tracking or 6DOF using PSMoveServiceEX
+- Support for wireless controllers https://github.com/dmcke5/DIY_VR_Controllers
 
-Please note! As I mentioned in the video, the displays I purchased can't actually do the 90hz they claim in the full 2880x1440 display mode which is needed for SteamVR. I'm going to reach out to the company and see if this is just an issue with my unit or if the other 120hz version they sell can actually provide the refresh rate that they claim. I will write back here if/when I get a response!
+This git has been updated for my Version 2 DIY VR design. All of the original files are still here, they've just been renamed to V1.0 if they are no longer in use (along with the original Readme).
+
+I have included a full model of both versions in .STEP format to aid with assembly!
+
 
 #### Bill of Materials
 
-1x Display Set (this is the one I used in the video with the issue of not reaching 90hz when in full resolution mode) - https://www.aliexpress.com/item/1005008906958871.html
+1x Display Set - https://www.aliexpress.com/item/32975284107.html
 
-1x IMU board (any variety that FastIMU supports is fine) - https://www.aliexpress.com/item/1005007284708262.html
+1x GY91 IMU board - https://www.aliexpress.com/item/1005005180963415.html
+
+2x NRF24L01 Wireless Module - https://www.aliexpress.com/item/1005007199963170.html
+
+1x 40mm Ping Pong Balls - https://www.aliexpress.com/item/1005009969506572.html
+
+1x Tactile switch - https://www.aliexpress.com/item/1005006497849129.html
 
 2x 3mm x 145mm Stainless Rod - https://www.aliexpress.com/item/1005009347568195.html
 
@@ -43,6 +54,8 @@ Please note! As I mentioned in the video, the displays I purchased can't actuall
 
 10x M3x8 SHCS
 
+4x M3x12 Standoffs
+
 ### Instructions
 
 #### Printing
@@ -55,52 +68,27 @@ First, you'll need one of every part printed, except for these items that requir
 
 2x DIY VR Thumbscrew Head
 
-There are print recomendations for most of the important parts in the video, except for the front cover. It's a difficult print to do well, and would ideally be printed back-side down with support interface material enabled. If you can't do multi-material prints, your next best bet would be to print it front-side down and just expect to do some cleanup on the front beveled edges.
+The files with V1.0 names can be ignored, unless you are specifically making the old version in which case, you can print them and disregard any V2.0 files. Refer the to V1.0 readme for specific Instructions.
+
+There are print recomendations for most of the important parts in the first video.
+The V2.0 front cover is much easier to print than V1.0 and can be printed front down with minimal supports.
 
 #### Electronics
 
-Only four connections are needed between the Arduino and the IMU; VCC, GND, SCL and SDA. If you decide not to use the PCB, you can just wire them manually as follows:
-```
- Arduino |  IMU
-----------------
-  VCC    |  VCC
-  GND    |  GND
-  D2     |  SDA
-  D3     |  SCL
-```
+Only three SMD parts are required to assemble the PCB, 1x MCP1792-3302xCB and two 470nF 0603 Capacitors. The two NRF modules can be soldered in as usual, but when you solder in the IMU module ensure you remove the black plastic spacer from the pins to ensure the module is sitting flat against the PCB. The Arduino needs to be installed WITH the black plastic spacers, otherwise its USB port won't align with the opening.
 
-Use the +5v and GND pins on the PCB (or equivalent if you're going without the PCB) to power the HDMI driver board from the head tracker module. Use a multimeter to confirm which of the two pads is the ground before you connect anything! On my unit, the circular pad was ground and the square pad was +5v!
-
+Once the head tracker board is assembled, there are three sets of pads you will need to connect. The two pads labelled "Calibrate" are to be wired to the tactile switch on the side of the headset. The three pads labelled VCC, GND and DO are to be connected to an addressable RGB LED that is used for the pingpong ball.
+The final two pads labelled VCC and GND are to supply power to your display driver and should be connected accordingly.
 
 #### Head Tracking Software/Firmware
 
-The head tracking relies on the [Relativity VR](https://www.relativty.com/) driver and the FastIMU Arduino library.
+Revision 2.0 of the head tracker relies on the HadesVR driver. I have included a slightly modified version of their firmware here, which you will need to use as it adds support for the addressable RGB led used for the tracking bulb.
 
-To install/flash the FastIMU firmware onto your head tracker, follow this guide: 
+Refer to the HadesVR github page for upload and config instructions: 
+https://github.com/HadesVR/Basic-HMD-PCB?tab=readme-ov-file#uploading-the-firmware-and-calibrating-the-sensors
 
-https://github.com/relativty/Relativty?tab=readme-ov-file#142-programming-your-mcu
-
-The one thing they don't mention in the guide is that you may need to change the IMU address and name on lines 13 and 14 to match your module. You can flash and run the Example "IMUIdentifier" to find out what values to include.
-
-When you complete the head tracker calibration both in Arduino Studio and later in SteamVR, ensure your headset is sitting flat on the table. You will need to prop it up with something so that the face plate isn't making the unit sit at an angle otherwise your home position will be off.
-
-Next you will need to install and configure the Steam VR driver. Here is a link to the guide!
-
-https://github.com/relativty/Relativty?tab=readme-ov-file#143-installing-the-steamvr-driver
-
-Ensure you follow the guide closely. During the configuration, you will need to set the VID and PID of your board as it will be different to the one used in their drivers. Use the identify board info option in Arduino Studio to display the VID and PID values. They will be in HEX format and need to be converted to Decimal before you can enter them into the configuration!
-
-The window X and Y setting will depend on your PC setup so read the guide for how to set that up, but the correct settings for everything else are as follows:
-
-```
-"windowWidth" : 2880,
-"windowHeight" : 1440,
-"renderWidth" : 2880,
-"renderHeight" : 1440,
-```
-
-If you can't get through the room setup in SteamVR, chances are you've got something wrong in either the driver configuration or you haven't got the correct IMU selected in the Arduino sketch.
+If you're using the 6DOF tracking, you will also need to go through the PSMoveServiceEX Setup process. Their documentation is here: https://github.com/Timocop/PSMoveServiceEx/wiki
 
 #### Physical Build
 
-Refer to the project video for build steps and I will add anything here in future if anyone requests extra information!
+Refer to both of the project videos for build steps and I will add anything here in future if anyone requests extra information!
